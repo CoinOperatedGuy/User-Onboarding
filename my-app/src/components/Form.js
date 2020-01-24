@@ -41,7 +41,7 @@ const UserForm = ({ errors, touched, values, status }) => {
         <ul>
           <li>Name: {user.name}</li>
           <li>Email: {user.email}</li>
-          <li>Password: {user.password}</li>
+          <li>Password Length: {user.password.length}</li>
         </ul>
       ))}
     </div>
