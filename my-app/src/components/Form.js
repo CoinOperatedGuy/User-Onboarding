@@ -26,7 +26,7 @@ const UserForm = ({ errors, touched, values, status }) => {
         {touched.email && errors.email && <p>{errors.email}</p>}
 
         <Field type="password" name="password" placeholder="Password" value={values.password} />
-        {touched.email && errors.email && <p>{errors.email}</p>}
+        {touched.password && errors.password && <p>{errors.password}</p>}
 
         <label>
           <p>Terms Of Service
@@ -60,8 +60,8 @@ const FormikForm = withFormik({
 
   validationSchema: Yup.object().shape({
     name: Yup.string().required("Please fill this in!"),
-    email: Yup.string().required("Please fill this in!"),
-    password: Yup.string().required("Please fill this in!")
+    email: Yup.string().required("Please fill this in!").email('include valid email'),
+    password: Yup.string().required("Please fill this in!").min(8)
   }),
 
   handleSubmit(values, { setStatus, resetForm }) {
